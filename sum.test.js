@@ -1,5 +1,6 @@
 const sum = require('./sum');
 const arrayMethods = require('./arrayMethods');
+const Game = require('./game'); // represents constructor function
 
 test('adds 1 + 2 to equl 3', () => {
   // expect - returns an expectation object
@@ -24,4 +25,29 @@ test('Takes numbers as arugments and returns an array of those numbers', () => {
   expect(arrayMethods.returnArray).toBeInstanceOf(Function);
   expect(arrayMethods.returnArray(1,2,3)).toBeInstanceOf(Array);
 });
+
+describe('game function', () => {
+ const player = 'Steve';
+ const game = new Game(player);
+ test('invoking game returns an instance of game', () => {
+  expect(game).toBeInstanceOf(Game);
+ });
+
+ test('Player property is correctly set', () => {
+  expect(game.player).toBe(player);
+ });
+ 
+ test('Game has a method called numberOfTurns', () => {
+   expect(game.numberOfTurns).toBeDefined();
+   expect(game.numberOfTurns).toBeInstanceOf(Function);
+ });
+
+ test('Invoking changeTurn, increases turns property by 1 and returns the new number of turns.', () => {
+   const turns = game.numberOfTurns();
+   expect(game.changeTurn()).toBe(turns + 1);
+
+ });
+});
+
+
 
