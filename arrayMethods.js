@@ -3,6 +3,12 @@ function filter(arr, val) {
   return arr.filter(el => el !== val);
 }
 
+// takes numbers as arguments, and returns an array of those numbers
+function returnArray() {
+ return [...arguments];
+}
+
 module.exports = {
-  filter
+  filter,
+  returnArray
 };
