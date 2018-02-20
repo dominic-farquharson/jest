@@ -13,4 +13,27 @@ test('the best flavor is grapefruit', () => {
 });
 
 ```
+## Describe Function
 
+Creates a block that groups together several related tests in one "test suite." Helps you to organize your tests into groups.
+
+`describe(name, fn)`
+
+```js
+const myBeverage = {
+  delicious: true,
+  sour: false,
+};
+
+// grouping tests together using the describe function
+describe('my beverage', () => {
+  test('is delicious', () => {
+    expect(myBeverage.delicious).toBeTruthy();
+  });
+
+  test('is not sour', () => {
+    expect(myBeverage.sour).toBeFalsy();
+  });
+});
+
+```
