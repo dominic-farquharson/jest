@@ -1,5 +1,10 @@
 # Jest
 
+## General
+
+- To only run a single test, change `test` to `test.only`.
+
+
 ## Expect Function
 
 Used everytime you want to test a value. Expect is normally used with a matcher function to assert something about a value.
@@ -102,5 +107,5 @@ test('the fetch fails with an error', async () => {
 ```
 
 ## References
-
+- [Before All and afterAll](https://facebook.github.io/jest/docs/en/setup-teardown.html#one-time-setup)
 - [Describe](https://facebook.github.io/jest/docs/en/api.html#describename-fn)
