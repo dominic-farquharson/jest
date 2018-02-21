@@ -59,6 +59,48 @@ describe('binaryStringToNumber', () => {
   });
 ```
 
+## Testing Asynchronous Code
+
+When you have code that runs asynchronously, Jest needs to know when the code it is testing has completed, before it can move on to another test. Jest has several ways to handle this. (Callbacks, Promises, Async/Await).
+
+
+### Promises 
+
+Return a promise from your test, and Jest will wait for that promise to resolve. If the promise is rejected, the test will automatically fail.
+
+```js
+test('the data is peanut butter', () => {
+  expect.assertions(1);
+  return fetchData().then(data => {
+    expect(data).toBe('peanut butter');
+  });
+});
+
+```
+
+### Async / Await
+
+Alternatively, you can use async and await in your tests. To write an async test, just use the async keyword in front of the function passed to test.
+
+
+```js
+test('the data is peanut butter', async () => {
+  expect.assertions(1);
+  const data = await fetchData();
+  expect(data).toBe('peanut butter');
+});
+
+test('the fetch fails with an error', async () => {
+  expect.assertions(1);
+  try {
+    await fetchData();
+  } catch (e) {
+    expect(e).toMatch('error');
+  }
+});
+
+```
+
 ## References
 
 - [Describe](https://facebook.github.io/jest/docs/en/api.html#describename-fn)
