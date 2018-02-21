@@ -33,7 +33,32 @@ describe('my beverage', () => {
 
   test('is not sour', () => {
     expect(myBeverage.sour).toBeFalsy();
-  });
+  t);
 });
 
 ```
+
+Can also nest describe blocks.
+
+```js
+describe('binaryStringToNumber', () => {
+  describe('given an invalid binary string', () => {
+    test('composed of non-numbers throws CustomError', () => {
+      expect(() => binaryStringToNumber('abc')).toThrowError(CustomError);
+    });
+
+    test('with extra whitespace throws CustomError', () => {
+      expect(() => binaryStringToNumber('  100')).toThrowError(CustomError);
+    });
+  });
+
+  describe('given a valid binary string', () => {
+    test('returns the correct number', () => {
+      expect(binaryStringToNumber('100')).toBe(4);
+    });
+  });
+```
+
+## References
+
+- [Describe](https://facebook.github.io/jest/docs/en/api.html#describename-fn)
